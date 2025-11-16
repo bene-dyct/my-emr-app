@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@import "tailwindcss";
+
+* {
+    font-family: 'Comic Neue', cursive;
+    font-style: normal;
+}
+
+.homebg {
+    background-image: url('/heropc.png');
+}
+
+@media print {
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+}
+
+
+
+
