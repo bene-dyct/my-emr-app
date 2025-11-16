@@ -60,7 +60,7 @@ export default function Home() {
       delay: 0.4,
       damping: 20,
     }}
-      className='flex w-[80%] min-[420px]:w-1/2 px-15 justify-between'>
+      className='flex w-[80%] min-[560px]:w-1/2 px-15 justify-between'>
         <button className="bg-[#6930C3] text-sm hover:bg-[#7400B8] text-white py-2 px-4 cursor-pointer rounded mb-4">
         <Link to="/register">Register</Link>
       </button>
