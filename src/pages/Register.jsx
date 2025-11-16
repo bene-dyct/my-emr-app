@@ -104,7 +104,7 @@ export default function Register() {
       <div
         className="w-full flex flex-col items-center justify-center min-h-screen p-5"
         style={{
-          backgroundImage: "url('/registerpc.png')",
+          backgroundImage: "url('https://ik.imagekit.io/myownImagekit/myemrapp/registerpc.png')",
           backgroundRepeat: "no-repeat",
           width: "100%",
           alignItems: "center",

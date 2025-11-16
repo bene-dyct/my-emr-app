@@ -10,7 +10,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center relative overflow-hidden lg:hidden text-center gap-7"
     style={
       {
-        backgroundImage: "url('/heromobile.png')",
+        backgroundImage: "url('https://ik.imagekit.io/myownImagekit/myemrapp/heromobile.png')",
         backgroundRepeat: 'no-repeat',
         height: '100vh',
         alignItems: 'center',
@@ -156,7 +156,7 @@ export default function Home() {
 <div className="flex items-center justify-center overflow-hidden w-2/3"
     style={
       {
-        backgroundImage: "url('/heropc.png')",
+        backgroundImage: "url('https://ik.imagekit.io/myownImagekit/myemrapp/heropc.png')",
         backgroundRepeat: 'no-repeat',
         height: '100vh',
         objectFit: 'cover',
