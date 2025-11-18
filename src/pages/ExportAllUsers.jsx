@@ -143,7 +143,7 @@ export default function ExportAllUsers() {
         const filteredVitals = filterVitalsByRange(user.vitals || [], dateRange);
 
         const userBase = {
-          Name: `${user.firstName || ""} ${user.lastName || ""}`.trim(),
+          Name: `${user.firstName || ""} ${user.middleName || ""} ${user.lastName || ""}`.trim(),
           Gender: user.gender || "",
           DOB: user.dob || "",
           Age: user.age || "",
@@ -179,7 +179,7 @@ export default function ExportAllUsers() {
       const ws = XLSX.utils.json_to_sheet(allData);
       //automatic column width adjustment
   ws["!cols"] = [
-  { wch: 35 }, // Name
+  { wch: 40 }, // Name
   { wch: 6 }, // Gender
   { wch: 10 }, // DOB
   { wch: 5 }, // Age
@@ -222,7 +222,7 @@ export default function ExportAllUsers() {
         const filteredVitals = filterVitalsByRange(user.vitals || [], dateRange);
 
         const userBase = {
-          Name: `${user.firstName || ""} ${user.lastName || ""}`.trim(),
+          Name: `${user.firstName || ""} ${user.middleName || ""} ${user.lastName || ""}`.trim(),
           Gender: user.gender || "",
           DOB: user.dob || "",
           Age: user.age || "",
@@ -258,7 +258,7 @@ export default function ExportAllUsers() {
         const ws = XLSX.utils.json_to_sheet(flattened);
         //automatic column width adjustment
   ws["!cols"] = [
-  { wch: 35 }, // Name
+  { wch: 40 }, // Name
   { wch: 6 }, // Gender
   { wch: 10 }, // DOB
   { wch: 5 }, // Age

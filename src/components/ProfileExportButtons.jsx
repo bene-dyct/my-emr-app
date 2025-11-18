@@ -32,7 +32,7 @@ export default function ProfileExportButtons({ targetRef, userData }) {
       pdf.text("Patient Profile Report", 40, 50);
 
       pdf.setFontSize(12);
-      pdf.text(`Name: ${userData.firstName} ${userData.lastName}`, 40, 80);
+      pdf.text(`Name: ${userData.firstName} ${userData.midddleName} ${userData.lastName}`, 40, 80);
       pdf.text(`Gender: ${userData.gender}`, 40, 100);
       pdf.text(`DOB: ${userData.dob}`, 40, 120);
       pdf.text(`Age: ${userData.age}`, 40, 140);

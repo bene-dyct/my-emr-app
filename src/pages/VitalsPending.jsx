@@ -100,7 +100,7 @@ export default function VitalsPending() {
                     }`}
                   >
                     <div className="font-medium">
-                      {u.firstName} {u.lastName}
+                      {u.firstName} {u.middleName} {u.lastName}
                     </div>
                     <div className="text-xs text-gray-500">{u.gender}, {u.age}</div>
                   </button>
@@ -122,7 +122,7 @@ export default function VitalsPending() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-semibold">
-                    Add Vitals for {selected.firstName} {selected.lastName}
+                    Add Vitals for {selected.firstName} {selected.middleName} {selected.lastName}
                   </h3>
                   <p className="text-sm text-gray-500">{selected.email}</p>
                 </div>

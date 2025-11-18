@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
   const [dobInput, setDobInput] = useState(""); // YYYY-MM-DD
@@ -46,6 +47,7 @@ export default function Register() {
 
       // Capitalize text fields
       const capitalizedFirstName = capitalizeWords(firstName.trim());
+      const capitalizedMiddleName = capitalizeWords(middleName.trim());
       const capitalizedLastName = capitalizeWords(lastName.trim());
       const capitalizedGender =
         gender.charAt(0).toUpperCase() + gender.slice(1).toLowerCase();
@@ -53,6 +55,7 @@ export default function Register() {
       // Save to Firestore
       await setDoc(doc(db, "users", customUserId), {
         firstName: capitalizedFirstName,
+        middleName: capitalizedMiddleName,
         lastName: capitalizedLastName,
         gender: capitalizedGender,
         dob,
@@ -66,6 +69,7 @@ export default function Register() {
       // Log successful registration
       logFirebaseEvent("user_registration", {
         first_name: capitalizedFirstName,
+        middle_name: capitalizedMiddleName,
         last_name: capitalizedLastName,
         age: age,
         gender: capitalizedGender,
@@ -77,6 +81,7 @@ export default function Register() {
       );
        // Reset all fields
       setFirstName("");
+      setMiddleName("");
       setLastName("");
       setGender("");
       setDob("");
@@ -140,6 +145,14 @@ export default function Register() {
               className="w-full md:w-1/2 p-2 border rounded"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Middle name"
+              className="w-full md:w-1/2 p-2 border rounded"
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
               required
             />
             <input

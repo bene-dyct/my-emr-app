@@ -236,7 +236,7 @@ export default function SearchProfileTier2() {
                   className="cursor-pointer"
                 >
                   <h3 className="font-medium">
-                    {user.firstName} {user.lastName}
+                    {user.firstName} {user.middleName} {user.lastName}
                   </h3>
                   <p className="text-sm text-gray-500">{user.email}</p>
                 </div>

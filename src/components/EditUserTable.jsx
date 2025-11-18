@@ -164,6 +164,7 @@ export default function EditUserTable({ userId: propUserId, onVitalsChange }) {
                     value={v.dateAdded}
                     onChange={(e) => updateValue(i, "dateAdded", e.target.value)}
                     className="border rounded px-2 py-1 w-full"
+                    required
                   />
                 </td>
 
@@ -173,6 +174,7 @@ export default function EditUserTable({ userId: propUserId, onVitalsChange }) {
                     value={v.systolicValue}
                     onChange={(e) => updateValue(i, "systolicValue", e.target.value)}
                     className="border rounded px-2 py-1 w-full"
+                    required
                   />
                 </td>
 
@@ -182,6 +184,7 @@ export default function EditUserTable({ userId: propUserId, onVitalsChange }) {
                     value={v.diastolicValue}
                     onChange={(e) => updateValue(i, "diastolicValue", e.target.value)}
                     className="border rounded px-2 py-1 w-full"
+                    required
                   />
                 </td>
 
@@ -191,6 +194,7 @@ export default function EditUserTable({ userId: propUserId, onVitalsChange }) {
                     value={v.pulseValue}
                     onChange={(e) => updateValue(i, "pulseValue", e.target.value)}
                     className="border rounded px-2 py-1 w-full"
+                    required
                   />
                 </td>
 
@@ -200,6 +204,7 @@ export default function EditUserTable({ userId: propUserId, onVitalsChange }) {
                     value={v.bloodSugarValue}
                     onChange={(e) => updateValue(i, "bloodSugarValue", e.target.value)}
                     className="border rounded px-2 py-1 w-full"
+                    required
                   />
                 </td>
               </tr>

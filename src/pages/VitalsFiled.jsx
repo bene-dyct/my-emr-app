@@ -108,7 +108,7 @@ export default function VitalsFiled() {
                     className="w-full text-left p-3 rounded border transition cursor-pointer bg-white hover:bg-[#80FFDB]"
                   >
                     <div className="font-medium">
-                      {user.firstName} {user.lastName}
+                      {user.firstName} {user.middleName} {user.lastName}
                     </div>
                     <div className="text-xs text-gray-500">{user.gender}, {user.age}</div>
                   </button>
@@ -128,7 +128,7 @@ export default function VitalsFiled() {
           ) : (
             <div>
               <h3 className="text-xl font-semibold mb-4">
-                Details for {selectedUser.firstName} {selectedUser.lastName}
+                Details for {selectedUser.firstName} {selectedUser.middleName} {selectedUser.lastName}
               </h3>
               <p><strong>Date of Birth:</strong> {selectedUser.dob}</p>
               <p><strong>Age:</strong> {selectedUser.age}</p>
@@ -136,7 +136,7 @@ export default function VitalsFiled() {
               <p><strong>Weight:</strong> {selectedUser.weight}</p>
               <p><strong>Height:</strong> {selectedUser.height}</p>
               <p><strong>Phone:</strong> {selectedUser.phone}</p>
-              <p><strong>Email:</strong> {selectedUser.email}</p>
+              
 
               <h4 className="text-lg font-semibold mt-4">Vitals Data</h4>
 

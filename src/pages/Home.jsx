@@ -148,8 +148,8 @@ export default function Home() {
         <Link to="/register"><button className="bg-[#6930C3] hover:bg-[#7400B8] cursor-pointer text-white py-2 px-4 rounded mb-4">
         Register
       </button></Link>
-      <Link to="/login"><button className="bg-[#7400B8] text-white hover:bg-[#6930C3] cursor-pointer hover:text-white py-2 px-4 rounded mb-4">
-        Log In
+      <Link to="/admin"><button className="bg-[#7400B8] text-white hover:bg-[#6930C3] cursor-pointer hover:text-white py-2 px-4 rounded mb-4">
+        Log In as Admin
       </button></Link>
       </motion.div>
       </div> 

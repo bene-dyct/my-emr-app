@@ -135,9 +135,12 @@ export default function EditProfile() {
         )
         .join(" ");
 
-    // ✅ Capitalize first & last names and gender
+    // ✅ Capitalize first, middle & last names and gender
     const capitalizedFirstName = formData.firstName
       ? capitalizeWords(formData.firstName.trim())
+      : "";
+      const capitalizedMiddleName = formData.middleName
+      ? capitalizeWords(formData.middleName.trim())
       : "";
     const capitalizedLastName = formData.lastName
       ? capitalizeWords(formData.lastName.trim())
@@ -151,6 +154,7 @@ export default function EditProfile() {
       const dataToUpdate = {
         ...formData,
         firstName: capitalizedFirstName,
+        middlename: capitalizedMiddleName,
         lastName: capitalizedLastName,
         gender: capitalizedGender,
         dob: formattedDate,
@@ -235,6 +239,18 @@ export default function EditProfile() {
                     value={formData.firstName || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-600 mb-1">Middle Name</label>
+                  <input
+                    type="text"
+                    name="middleName"
+                    value={formData.middleName || ""}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded"
+                    required
                   />
                 </div>
                 <div>
@@ -245,17 +261,7 @@ export default function EditProfile() {
                     value={formData.lastName || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-600 mb-1">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email || ""}
-                    onChange={handleChange}
-                    disabled
-                    className="w-full p-2 border rounded text-gray-500"
+                    required
                   />
                 </div>
                 <div>
@@ -266,6 +272,7 @@ export default function EditProfile() {
                     value={formData.phone || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
+                    required
                   />
                 </div>
                 <div>
@@ -275,11 +282,11 @@ export default function EditProfile() {
                     value={formData.gender || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
+                    
                   >
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                    <option value="other">Other</option>
                   </select>
                 </div>
               </div>
@@ -297,6 +304,7 @@ export default function EditProfile() {
                     value={formData.dob || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
+                    required
                   />
                 </div>
                 <div>
@@ -318,6 +326,7 @@ export default function EditProfile() {
                     value={formData.weight || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
+                    required
                   />
                 </div>
                 <div>
@@ -328,6 +337,7 @@ export default function EditProfile() {
                     value={formData.height || ""}
                     onChange={handleChange}
                     className="w-full p-2 border rounded"
+                    required
                   />
                 </div>
               </div>

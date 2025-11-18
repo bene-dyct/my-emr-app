@@ -81,7 +81,7 @@ export default function Profile() {
       <div className="min-h-screen p-8 bg-[#56CFE1]">
         <h1 className="text-2xl font-bold mb-6 mt-20">
           {userId
-            ? `Profile: ${userData.firstName} ${userData.lastName}`
+            ? `Profile: ${userData.firstName} ${userData.middleName} ${userData.lastName}`
             : `Welcome, ${userData.firstName} ${userData.lastName}`}
         </h1>
 
@@ -95,7 +95,7 @@ export default function Profile() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
               <div className="space-y-3">
-                <p><b>Full Name:</b> {userData.firstName} {userData.lastName}</p>
+                <p><b>Full Name:</b> {userData.firstName} {userData.middleName} {userData.lastName}</p>
                 <p><b>Phone:</b> {userData.phone}</p>
                 <p><b>Gender:</b> <span className="capitalize">{userData.gender}</span></p>
               </div>
