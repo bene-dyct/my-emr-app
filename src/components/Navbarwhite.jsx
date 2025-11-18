@@ -63,7 +63,8 @@ const Navbarwhite = () => {
                  >
                    <li className={`block ${isOpen ? "pt-10" : "max-lg:hidden"} pt-2 justify-between 
                           text-black active:text-indigo-900 hover:text-indigo-900 max-lg:text-black max-lg:hover:text-blue-700`} ><NavLink to="/" className={({ isActive }) => `text-black hover:text-indigo-900 ${isActive ? 'text-indigo-900' : ''}`}>Home</NavLink></li>
-
+<li className={`block ${isOpen ? "" : "max-lg:hidden"} pt-2 justify-between 
+                          text-black active:text-indigo-900 hover:text-indigo-900 max-lg:text-black max-lg:hover:text-blue-700`} ><NavLink to="/login" className={({ isActive }) => `text-black hover:text-indigo-900 ${isActive ? 'text-indigo-900' : 'lg:text-white'}`}>Login</NavLink></li>
                     <li className={`block ${isOpen ? "" : "max-lg:hidden"} pt-2 justify-between 
                           text-black active:text-indigo-900 hover:text-indigo-900 max-lg:text-black max-lg:hover:text-blue-700`} ><NavLink to="/register" className={({ isActive }) => `text-black hover:text-indigo-900 ${isActive ? 'text-indigo-900' : ''}`}>Register</NavLink></li>
                    <li className={`block ${isOpen ? "" : "max-lg:hidden"} pt-2 justify-between 

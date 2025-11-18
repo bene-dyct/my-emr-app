@@ -16,13 +16,13 @@ import DashboardTier2 from './pages/DashboardTier2';
 import SearchProfileTier2 from './pages/SearchProfileTier2';
 import EditProfile from './pages/EditProfile';
 import ExportAllUsers from './pages/ExportAllUsers';
+import AdminRouteLogin from './components/AdminRouteLogin';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
 
@@ -40,6 +40,15 @@ function App() {
         />
 
         {/* Protected admin sections (Tier-1) */}
+        <Route
+          path="/register"
+          element={
+            <AdminRouteLogin>
+              <Register />
+            </AdminRouteLogin>
+          }
+        />
+
         <Route
           path="/dashboard"
           element={

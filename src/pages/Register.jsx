@@ -119,19 +119,12 @@ export default function Register() {
           justifyContent: "center",
         }}
       >
-        <p className="mt-25">
-          Already registered?{" "}
-          <span className="text-lg text-white md:text-blue-700">
-            <Link to="/login">Log In Here</Link>
-          </span>
-        </p>
 
         <h2 className="text-2xl font-bold py-3 mt-10 md:w-1/2 md:ml-auto flex items-center text-center justify-center">
           Register
         </h2>
         <p className="font-bold py-3 md:w-1/2 md:ml-auto flex items-center text-center justify-center">
-          Fill in your personal details here to register on myVitalApp. We’ll
-          store this information securely for you.
+          Fill in the personal details here to register a user on myVitalApp.
         </p>
 
         <form

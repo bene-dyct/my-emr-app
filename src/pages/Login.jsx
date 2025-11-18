@@ -8,14 +8,20 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+
+  const TIER1_EMAIL = "tier1@myvitalapp.com";
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
   await signInWithEmailAndPassword(auth, email, password);
-navigate("/profile");
+  // Save session
+      sessionStorage.setItem("isAdminAuthenticated", "true");
+      sessionStorage.setItem("adminLevel", "tier20");
+navigate("/register");
   // continue login success...
 } catch (error) {
   let msg = "";
@@ -52,7 +58,7 @@ navigate("/profile");
     <>
     <Navbar/>
     <div className="flex flex-col items-center justify-center h-screen relative p-5 bg-[#56CFE1]">
-      <h2 className="text-2xl font-bold mb-4">Login to your Profile</h2>
+      <h2 className="text-2xl font-bold mb-4">Login to Register</h2>
       <form onSubmit={handleLogin} className="md:w-96 space-y-2">
         <input
           type="email"
@@ -77,7 +83,7 @@ navigate("/profile");
           className="w-full bg-[#6930C3] hover:bg-[#7400B8] text-white py-2 rounded cursor-pointer"
           disabled={loading}
         >
-          {loading ? "Logging in..." : "Log In"}
+          {loading ? "Logging in..." : "Log In to Register"}
         </button>
       </form>
 
