@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AdminBadge from "../components/AdminBadge";
-import { logFirebaseEvent } from "../firebaseConfig";
+import { auth, logFirebaseEvent } from "../firebaseConfig";
+import { signOut } from "firebase/auth";
 
 export default function Dashboard() {
   const [now, setNow] = useState(new Date());
@@ -21,15 +22,25 @@ export default function Dashboard() {
     return () => clearInterval(t);
   }, []);
 
-  const handleLogout = () => {
-    logFirebaseEvent("admin_logout", {
-      admin_level: "tier1",
-      timestamp: new Date().toISOString()
-    });
-    sessionStorage.removeItem("isAdminAuthenticated");
-    sessionStorage.removeItem("adminLevel");
-    sessionStorage.removeItem("isAdminTier2Authenticated");
-    navigate("/admin");
+  const handleLogout = async () => {
+    try {
+      logFirebaseEvent("admin_logout", {
+        admin_level: "tier1",
+        timestamp: new Date().toISOString()
+      });
+
+      //firebase log out -> invalidates jwt
+      await signOut(auth);
+
+      // Clear session storage
+      sessionStorage.removeItem("isAdminAuthenticated");
+      sessionStorage.removeItem("adminLevel");
+      sessionStorage.removeItem("isAdminTier2Authenticated");
+      navigate("/admin");
+    } catch (err) {
+      console.error("Logout Error:", err);
+      alert("Failed to log out. Please try again.");
+    }
   };
 
   return (
