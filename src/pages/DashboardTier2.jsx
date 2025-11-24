@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AdminBadge from "../components/AdminBadge";
-import { logFirebaseEvent } from "../firebaseConfig";
+import { auth, logFirebaseEvent } from "../firebaseConfig";
 import { signOut } from "firebase/auth";
 
 export default function DashboardTier2() {
-  const [now, setNow] = useState(new Date());
+ const [now, setNow] = useState(new Date());
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,21 +23,27 @@ export default function DashboardTier2() {
 
   const handleLogout = async () => {
     try {
-    logFirebaseEvent("admin_logout", {
-      admin_level: "tier2",
-      timestamp: new Date().toISOString()
-    });
+      logFirebaseEvent("admin_logout", {
+        admin_level: "tier2",
+        timestamp: new Date().toISOString()
+      });
 
-    //firebase logout -> invalidates jwt
-    await signOut(auth);
-    sessionStorage.removeItem("isAdminAuthenticated");
-    sessionStorage.removeItem("adminLevel");
-    sessionStorage.removeItem("isAdminTier2Authenticated");
-    navigate("/admin");
-  } catch (err) {
-    console.error("Logout error:", err);
-    alert("Failed to log out. Please try again.");
-  }
+      if (auth) {
+        // signOut expects the auth instance
+        await signOut(auth);
+      } else {
+        // when firebase not initialized, just clear session (dev safety)
+        console.debug("Auth instance not available — clearing session only.");
+      }
+
+      sessionStorage.removeItem("isAdminAuthenticated");
+      sessionStorage.removeItem("adminLevel");
+      sessionStorage.removeItem("isAdminTier2Authenticated");
+      navigate("/admin");
+    } catch (err) {
+      console.error("Logout error:", err);
+      alert("Failed to log out. Please try again.");
+    }
   };
 
   return (
