@@ -2,12 +2,18 @@ import { useState } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { toPng } from "html-to-image";
+import { logFirebaseEvent } from "../firebaseConfig";
 
 export default function ProfileExportButtons({ targetRef, userData }) {
   const [exporting, setExporting] = useState(false);
 
   // 🖨 PRINT PAGE
   const handlePrint = () => {
+    logFirebaseEvent("profile_print_initiated", {
+      user_id: userData?.id,
+      user_name: `${userData?.firstName} ${userData?.lastName}`,
+      timestamp: new Date().toISOString(),
+    });
     window.print();
   };
 
@@ -32,7 +38,12 @@ export default function ProfileExportButtons({ targetRef, userData }) {
       pdf.text("Patient Profile Report", 40, 50);
 
       pdf.setFontSize(12);
-      pdf.text(`Name: ${userData.firstName} ${userData.midddleName} ${userData.lastName}`, 40, 80);
+      // ✅ FIX: Changed midddleName to middleName
+      pdf.text(
+        `Name: ${userData.firstName} ${userData.middleName || ""} ${userData.lastName}`,
+        40,
+        80
+      );
       pdf.text(`Gender: ${userData.gender}`, 40, 100);
       pdf.text(`DOB: ${userData.dob}`, 40, 120);
       pdf.text(`Age: ${userData.age}`, 40, 140);
@@ -97,8 +108,19 @@ export default function ProfileExportButtons({ targetRef, userData }) {
       // 💾 Save the file
       const fileName = `${userData.firstName}_${userData.lastName}_Profile_Report.pdf`;
       pdf.save(fileName);
+
+      logFirebaseEvent("profile_pdf_exported", {
+        user_id: userData.id,
+        user_name: `${userData.firstName} ${userData.lastName}`,
+        timestamp: new Date().toISOString(),
+      });
     } catch (error) {
       console.error("Export error:", error);
+      logFirebaseEvent("profile_export_error", {
+        error_message: error.message,
+        user_id: userData?.id,
+        timestamp: new Date().toISOString(),
+      });
       alert("Failed to generate PDF. Please try again.");
     } finally {
       setExporting(false);
