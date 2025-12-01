@@ -17,7 +17,7 @@ export default function AdminBadge() {
           adminLevel === "tier1" ? "bg-blue-600" : "bg-purple-600"
         }`}
       >
-        {adminLevel === "tier1" ? "🔒 Tier 1 Admin" : "👑 Tier 2 Admin"}
+        {adminLevel === "tier1" ? "🔒 Attendant" : "👑 Supervisor"}
       </div>
     </div>
   );

@@ -89,6 +89,9 @@ export default function Admin() {
     }
   };
 
+  // submit label mapping — does not change auth/route logic
+  const submitLabel = adminType === "tier1" ? "Login as Attendant" : "Login as Supervisor";
+
   return (
     <>
       <Navbar />
@@ -176,7 +179,7 @@ export default function Admin() {
               }`}
               disabled={loading}
             >
-              {loading ? "Logging in..." : "Login as" + adminType.toUpperCase()}
+              {loading ? "Logging in..." : submitLabel}
               
             </button>
           </form>
