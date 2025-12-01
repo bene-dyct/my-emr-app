@@ -123,7 +123,7 @@ export default function Home() {
       delay: 0.4,
       damping: 20,
     }}
-      className='mt-10'>Stay informed.</motion.p>
+      className='mt-10'>Stay empowered.</motion.p>
       <motion.p
       initial={{ opacity:0, y:40 }}
     whileInView={{ opacity:1, y:0}}
@@ -133,7 +133,7 @@ export default function Home() {
       delay: 0.5,
       damping: 20,
     }}
-      className='mt-10'>Stay informed.</motion.p>
+      className='mt-10'>Stay in control.</motion.p>
       </div>
       <motion.div
       initial={{ opacity:0, y:40 }}
